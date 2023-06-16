@@ -1,0 +1,89 @@
+{
+  "name": "@ortege/widgets",
+  "description": "Common react components for Ortege projects",
+  "version": "1.3.5-beta0",
+  "author": "J M Rossy",
+  "peerDependencies": {
+    "@ortege/sdk": ">=1.3.6",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@mdx-js/react": "^1.6.22",
+    "@ortege/sdk": "1.3.6",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-docs": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack4": "^6.5.15",
+    "@storybook/manager-webpack4": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
+    "@svgr/cli": "^6.5.1",
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "babel-loader": "^8.3.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "postcss": "^8.4.21",
+    "prettier": "^2.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.2.4",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2"
+  },
+  "files": [
+    "/dist"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "browser": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./styles.css": {
+      "import": "./dist/styles.css",
+      "style": "./dist/styles.css",
+      "default": "./dist/styles.css"
+    }
+  },
+  "homepage": "https://www.ortege.xyz",
+  "keywords": [
+    "ortege",
+    "Widgets",
+    "React",
+    "Components",
+    "Typescript"
+  ],
+  "license": "Apache-2.0",
+  "packageManager": "yarn@3.2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ortege-xyz/ortege-widgets"
+  },
+  "scripts": {
+    "build": "yarn build:svg && yarn build:cjs && yarn build:esm && yarn build:css",
+    "build:cjs": "tsc --project ./tsconfig.json",
+    "build:esm": "tsc --project ./tsconfig.esm.json",
+    "build:css": "tailwindcss -c ./tailwind.config.js -i ./src/styles.css -o ./dist/styles.css --minify",
+    "build:svg": "svgr --typescript --out-dir src/logos -- node_modules/@ortege/sdk/logos",
+    "clean": "rm -rf dist cache",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --write ./src",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "prepublishOnly": "yarn build"
+  }
+}
