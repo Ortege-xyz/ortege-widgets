@@ -1,8 +1,7 @@
 {
   "name": "@ortege/widgets",
   "description": "Common react components for Ortege projects",
-  "version": "1.3.5-beta0",
-  "author": "J M Rossy",
+  "version": "1.3.6",
   "peerDependencies": {
     "@ortege/sdk": ">=1.3.6",
     "react": "^18",
@@ -85,5 +84,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublishOnly": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
